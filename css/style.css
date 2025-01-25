@@ -2,6 +2,7 @@
 
 :root {
     --black: #181A1B;
+    --brown: #ab4e4f;
     --white: #fafafa;
     --gray: #8B8C8D;
     --dark-gray: #4f5a5d;
@@ -13,6 +14,7 @@
     padding: 0;
     box-sizing: border-box;
     scrollbar-width: none;
+    text-decoration: none;
 }
 
 body {
@@ -53,7 +55,6 @@ header nav ul li {
 }
 
 header nav ul li a {
-    text-decoration: none;
     color: var(--gray);
     font-size: 16px;
     font-weight: 500;
@@ -67,7 +68,7 @@ header nav ul li a:hover {
 .active {
     padding-bottom: 10px;
     color: var(--white);
-    border-bottom: 2px solid var(--gray);
+    border-bottom: 2px solid var(--brown);
 }
 
 .md-hidden {
@@ -77,23 +78,111 @@ header nav ul li a:hover {
 section {
     height: 100vh;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     color: var(--white);
-    gap: 18px;
 }
 
 section div {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
+    width: 65vw;
 }
 
+#profileContainer {
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+#profileDescription {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: green; */
+}
+
+#profileDescription h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 26px;
+}
+
+#profileDescription p {
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 15px;
+    color: var(--gray);
+}
+
+#profileDescription p span {
+    color: var(--white);
+}
+
+#profileDescription a {
+    margin-top: 20px;
+    color: var(--white);
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+#profileImage {
+    width: 465px;
+    height: 465px;
+}
+
+#profileImage img {
+    width: 100%;
+    height: 100%;
+}
+
+#skillsContainer {
+    color: var(--white);
+    font-size: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#skillsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#skillsContainer:hover {
+    cursor: pointer;
+}
+
+.fa-code:hover {
+    color: #dc4d25;
+    
+} 
+
+.fa-css3:hover {
+    color: #2862e9;
+}
+
+.fa-js:hover {
+    color: #efd81d;
+}
+
+.fa-php:hover {
+    color: #4d588e;
+}
+
+.fa-symfony:hover {
+    background-color: var(--white);
+    color: #181A1B;
+    padding: 0;
+    border-radius: 100%;
+    border: none;
+}
+
+.fa-react:hover {
+    color: #5ed3f3;
+}
 
 /* Media queries  */
 
