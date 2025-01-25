@@ -3,43 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed AL-OBEIDI</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Scroll Navigation</title>
+    <link rel="stylesheet" href="./css/style.css" />
     <script defer src="./js/script.js"></script>
 </head>
 <body>
-    <!-- START HEADER -->
+
+    <!-- Fixed Header -->
     <header>
-        <div id="headerContainer">
-            <h1 id="logo">AL-OBEIDI.</h1>
-            <a href=""><img src="./assets/menu-burger.png" alt="menu-burger" id="menuBurger"></a>
-        </div>
-    </header>        
-    <!-- END HEADER -->
+        <a href="" id="logo">AL-OBEIDI.</a>
+        <nav class="sm-hidden">
+            <ul>
+                <li><a href="#profile" class="active">Profile</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#showcases">Showcases</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <img src="./assets/menu-burger.png" alt="menu-burger" class="md-hidden" id="menuBurger" />
+    </header>
 
-    <!-- START Main -->
+    <!-- Main Sections Container -->
     <main>
-        <div id="mainContainer">
-            <!-- hello Section -->
-            <section id="hello">
-                <h2>Hello,<br>My name is Ahmed</h2>
-                <p>I'm currently in training in Saint-Etienne with Garage404 and Simplon,</p>
-                <p>I am looking for an internship in web development for the period from 24 April 2025 to 7 july  2025.</p>
-                <a href="#">Get My Resume</a>
-                <img src="./assets/profile-image.png" alt="profile-image">
-            </section>
+        <section id="profile">
+            <div>
+                <h2>Profile</h2>
+                <p>It's meeeeeeeeeee</p>
+            </div>
+        </section>
+        <section id="skills">
+            <div>
+                <h2>Skills</h2>
+                <p>It's meeeeeeeeeee</p>
+            </div>
+        </section>
+        <section id="showcases">
+            <div>
+                <h2>Showcases</h2>
+                <p>It's meeeeeeeeeee</p>
+            </div>
+        </section>
+        <section id="contact">
+            <div>
+                <h2>Contact</h2>
+                <p>It's meeeeeeeeeee</p>
+            </div>
+        </section>
+    </main>
 
-            <!-- Showcase Section -->
-             <section id="showcase">
-                <h2>Showcases.</h2>
-                <p>Thsee are some highlight projects. Each page discusses the purpose of the project, what was learned,and how i came up with solutions</p>
-                <div id="slider">
-                    <div id="image"></div>
-                    <h3>Project name</h3>
-                </div>
-             </section>
-        </div>
-    </main>        
-    <!-- END Main -->
 </body>
 </html>

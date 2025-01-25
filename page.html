@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Navigation</title>
+  <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+  <!-- <script defer src="./js/script.js"></script> -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      border: 1px solid #ccc;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px;
+        position: fixed;
+        top: 30px;
+        right: 70px;
+        left: 70px;
+    }
+
+    #logo {
+        font-family: "Roboto slab", serif;
+        text-decoration: none;
+        width: 121px;
+        height: 22px;
+        font-weight: 700;
+        font-size: 22.4px;
+        line-height: 23.74px;
+        color: var(--white);
+    }
+
+    header nav ul {
+        display: flex;
+        gap: 1.7rem;
+    }
+
+    header nav ul li {
+        list-style: none;
+    }
+
+    header nav ul li a {
+        text-decoration: none;
+        color: var(--gray);
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3 ease;
+    }
+
+    header nav ul li a:hover {
+        color: var(--white);
+    }
+
+    .active {
+        padding-bottom: 10px;
+        color: var(--white);
+        border-bottom: 2px solid var(--gray);
+    }
+
+    .md-hidden {
+        display: none;
+    }
+  </style>
+</head>
+<body>
+
+     <!-- Fixed Header -->
+     <header>
+        <a href="" id="logo">AL-OBEIDI.</a>
+        <nav class="sm-hidden">
+            <ul>
+                <li><a href="#profile" class="active">Profile</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#showcases">Showcases</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <img src="./assets/menu-burger.png" alt="menu-burger" class="md-hidden" id="menuBurger" />
+    </header>
+
+    <main>
+        <section id="profile" style="background-color: lightblue;">
+            <div>
+                <h2>Profile</h2>
+                <p>It's meeeeeeeeeee</p>
+            </div>
+        </section>
+        <section id="skills" style="background-color: lightgreen;">
+            <div>
+                <h2>Skills</h2>
+                <p>It's meeeeeeeeeee</p>
+            </div>
+        </section>
+        <section id="showcases" style="background-color: lightcoral;">
+            <div>
+                <h2>Showcases</h2>
+                <p>It's meeeeeeeeeee</p>
+            </div>
+        </section>
+        <section id="contact" style="background-color: lightgoldenrodyellow;">
+            <div>
+                <h2>Contact</h2>
+                <p>It's meeeeeeeeeee</p>
+            </div>
+        </section>
+    </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = ["profile", "skills", "showcases", "contact"];
+      const scrollOptions = {
+        behavior: "smooth",
+        block: "start",
+      };
+
+      let isScrolling = false; // Prevent overlapping scrolls
+
+      const handleScroll = (event) => {
+        if (isScrolling) {
+          event.preventDefault();
+          return;
+        }
+
+        // Find the currently visible section
+        const currentSectionId = sections.find((id) => {
+          const section = document.getElementById(id);
+          const rect = section.getBoundingClientRect();
+          return (
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2
+          );
+        });
+
+        if (currentSectionId) {
+          const currentIndex = sections.indexOf(currentSectionId);
+
+          if (event.deltaY > 0 && currentIndex < sections.length - 1) {
+            // Scroll down
+            const nextSectionId = sections[currentIndex + 1];
+            isScrolling = true;
+            document.getElementById(nextSectionId).scrollIntoView(scrollOptions);
+            setTimeout(() => (isScrolling = false), 800);
+          } else if (event.deltaY < 0 && currentIndex > 0) {
+            // Scroll up
+            const prevSectionId = sections[currentIndex - 1];
+            isScrolling = true;
+            document.getElementById(prevSectionId).scrollIntoView(scrollOptions);
+            setTimeout(() => (isScrolling = false), 800);
+          }
+        }
+
+        event.preventDefault(); // Prevent default scrolling behavior
+      };
+
+      window.addEventListener("wheel", handleScroll, { passive: false });
+    });
+  </script>
+</body>
+</html>
