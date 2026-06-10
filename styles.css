@@ -56,17 +56,39 @@ button {
 }
 
 /* Profile Header */
+.profile-card {
+  position: relative;
+  overflow: visible; /* allow avatar to overlap the cover */
+}
+
 .cover {
-  height: 190px;
-  background: linear-gradient(135deg, #b8ddff, #e5f3ff 45%, #111 45%);
+  position: relative;
+  width: 100%;
+  height: clamp(140px, 18vh, 340px);
+  background-image: url("assets/img/Cover.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* optional semi-transparent overlay for contrast */
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.35));
+  pointer-events: none;
+  z-index: 1;
 }
 
 .profile-top {
+  position: relative;
+  z-index: 3; /* ensure profile row sits above the cover */
   display: flex;
   align-items: end;
   justify-content: space-between;
   padding: 0 28px;
-  margin-top: -72px;
+  margin-top: -58px; /* slightly less overlap so avatar isn't half hidden */
 }
 
 .avatar {
