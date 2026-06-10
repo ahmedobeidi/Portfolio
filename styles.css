@@ -1,0 +1,443 @@
+:root {
+  --bg: #000;
+  --panel: #111214;
+  --panel-hover: #16181c;
+  --line: #2f3336;
+  --text: #e7e9ea;
+  --muted: #71767b;
+  --accent: #d4008f;
+  --accent2: #1d9bf0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: grid;
+  grid-template-columns: minmax(0, 780px) 320px;
+  justify-content: center;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* Layout */
+.profile-shell {
+  width: 100%;
+  min-height: 100vh;
+  border-inline: 1px solid var(--line);
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 24px;
+}
+
+.right {
+  border-left: 1px solid var(--line);
+}
+
+/* Profile Header */
+.cover {
+  height: 190px;
+  background: linear-gradient(135deg, #b8ddff, #e5f3ff 45%, #111 45%);
+}
+
+.profile-top {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding: 0 28px;
+  margin-top: -72px;
+}
+
+.avatar {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  border: 5px solid var(--bg);
+  object-fit: cover;
+  object-position: center;
+}
+
+.follow {
+  margin-bottom: 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent2);
+  color: #fff;
+  font-weight: 800;
+  padding: 13px 24px;
+  cursor: pointer;
+}
+
+.follow:hover {
+  background: #2074ad;
+}
+
+.profile-card h1,
+.tagline,
+.bio,
+.meta {
+  padding-inline: 28px;
+}
+
+.profile-card h1 {
+  margin: 12px 0 4px;
+  font-size: clamp(34px, 6vw, 48px);
+}
+
+.tagline {
+  margin: 0;
+  font-weight: 700;
+}
+
+.bio {
+  max-width: 680px;
+  color: #c8c8c8;
+  line-height: 1.45;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* Tabs */
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tab {
+  position: relative;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background: #080808;
+}
+
+.tab.active {
+  color: var(--text);
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 56px;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--accent2);
+  transform: translateX(-50%);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Posts */
+.post {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--line);
+  animation: fadeUp 0.45s ease both;
+}
+
+.text-post {
+  display: block;
+}
+
+.post:hover {
+  background: #050505;
+}
+
+.post-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pin,
+.actions,
+.project-tags,
+.date {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.post h2 {
+  margin: 4px 0 8px;
+  font-size: 29px;
+}
+
+.post p {
+  line-height: 1.5;
+}
+
+/* Projects */
+.project-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.project-tags span,
+.chips span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.project-links a {
+  color: var(--accent2);
+  font-weight: 800;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* Right Sidebar */
+.widget {
+  margin-bottom: 18px;
+  padding: 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.widget h3 {
+  margin-top: 0;
+}
+
+.widget p {
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Contact */
+.contact-intro {
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  transition: 0.25s ease;
+}
+
+.social-card:hover {
+  background: var(--panel-hover);
+  border-color: var(--accent2);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(29, 155, 240, 0.1);
+  color: var(--accent2);
+  font-size: 28px;
+}
+
+.social-card h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.social-card p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.social-card:hover .fa-github {
+  color: #fff;
+}
+
+.social-card:hover .fa-linkedin {
+  color: #0a66c2;
+}
+
+.social-card:hover .fa-envelope {
+  color: #ea4335;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  body {
+    grid-template-columns: minmax(0, 780px);
+  }
+
+  .right {
+    display: none;
+  }
+
+  .profile-shell {
+    max-width: 780px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  body {
+    display: block;
+  }
+
+  .profile-shell {
+    max-width: none;
+    border: 0;
+  }
+
+  .cover {
+    height: 135px;
+  }
+
+  .profile-top {
+    padding-inline: 18px;
+    margin-top: -58px;
+  }
+
+  .avatar {
+    width: 112px;
+    height: 112px;
+  }
+
+  .profile-card h1,
+  .tagline,
+  .bio,
+  .meta {
+    padding-inline: 18px;
+  }
+
+  .tabs {
+    grid-template-columns: repeat(4, minmax(90px, 1fr));
+    overflow-x: auto;
+  }
+
+  .tab {
+    padding: 16px 10px;
+  }
+
+  .post {
+    grid-template-columns: 44px 1fr;
+    padding: 18px;
+  }
+
+  .post h2 {
+    font-size: 24px;
+  }
+
+  .social-card {
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 23px;
+  }
+
+  .social-card h3 {
+    font-size: 16px;
+  }
+
+  .social-card p {
+    font-size: 13px;
+    word-break: break-word;
+  }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmed AL-OBEIDI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <main class="profile-shell">
+    <section class="profile-card">
+      <div class="cover"></div>
+
+      <div class="profile-top">
+        <img class="avatar" src="assets/img/avatar.png" alt="Profile avatar" />
+        <a class="follow" href="mailto:alobeidi.dev@gmail.com">Me contacter</a>
+      </div>
+
+      <h1>Ahmed AL-OBEIDI</h1>
+      <p class="tagline">Donner vie aux idées grâce au code ✨</p>
+      <p class="bio">Concepteur Développeur d’Applications Junior. Je conçois et développe des sites web en mettant
+        l’accent sur la qualité, l’ergonomie et les bonnes pratiques de développement.</p>
+
+      <div class="meta">
+        <span>💼 Développeur</span>
+        <span>📍 France / Remote</span>
+        <span>📅 Depuis 2025</span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="feed">Actualités</button>
+        <button class="tab" data-tab="about">À propos</button>
+        <button class="tab" data-tab="projects">Projets</button>
+        <button class="tab" data-tab="contact">Contact</button>
+      </div>
+    </section>
+
+    <section id="feed" class="tab-panel active">
+      <article class="post pinned">
+        <img class="post-avatar" src="assets/img/avatar.png" alt="" />
+        <div>
+          <p class="pin">📌 Publication épinglée</p>
+          <h2>Hello World!</h2>
+          <p>Bienvenue sur le fil d’actualité de mon portfolio. Mes projets y sont présentés sous forme de publications,
+            avec des liens, des technologies utilisées et de courts résumés pour les découvrir rapidement.
+          </p>
+          <div class="actions">💬 12 &nbsp; 🔁 8 &nbsp; 💗 90</div>
+        </div>
+      </article>
+
+      <div id="projectPosts"></div>
+    </section>
+
+    <section id="about" class="tab-panel">
+      <article class="post text-post">
+        <h2>À propos de moi</h2>
+        <p>
+          Développeur d’applications junior spécialisé dans les technologies web, j’aime concevoir des solutions
+          fiables, évolutives et centrées sur les besoins des utilisateurs.
+        </p>
+
+        <p>
+          Actuellement à la recherche d’une alternance pour poursuivre ma formation d’Expert en Architecture et
+          Développement Logiciel (Bac+5).
+        </p>
+      </article>
+    </section>
+
+    <section id="projects" class="tab-panel">
+      <div id="projectList"></div>
+    </section>
+
+    <section id="contact" class="tab-panel">
+      <article class="post text-post">
+        <h2>Restons en contact</h2>
+
+        <p class="contact-intro">
+          Retrouvez-moi sur les réseaux ou contactez-moi directement par e-mail.
+        </p>
+
+        <div class="social-links">
+
+          <a href="https://github.com/ahmedobeidi" target="_blank" rel="noopener noreferrer" class="social-card">
+            <i class="fa-brands fa-github social-icon"></i>
+
+            <div>
+              <h3>GitHub</h3>
+              <p>github.com/alobeidi-dev</p>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/ahmed-al-obeidi-5164a2308/" target="_blank" rel="noopener noreferrer"
+            class="social-card">
+            <i class="fa-brands fa-linkedin social-icon"></i>
+
+            <div>
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/ahmed-al-obeidi-5164a2308/</p>
+            </div>
+          </a>
+
+          <a href="mailto:alobeidi.dev@gmail.com" class="social-card">
+            <i class="fa-solid fa-envelope social-icon"></i>
+
+            <div>
+              <h3>Email</h3>
+              <p>alobeidi.dev@gmail.com</p>
+            </div>
+          </a>
+
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <aside class="sidebar right">
+    <div class="widget">
+      <h3>Mes compétences</h3>
+      <p><strong>Analyse des besoins</strong></p>
+      <p><strong>Conception de bases de données relationnelles</strong></p>
+      <p><strong>Maquettage d’interfaces</strong></p>
+      <p><strong>Développement d'applications web</strong></p>
+    </div>
+
+    <div class="widget">
+      <h3>Stack Technique</h3>
+      <div class="chips">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JS</span>
+        <span>PHP</span>
+        <span>Symfony</span>
+        <span>React</span>
+      </div>
+    </div>
+  </aside>
+</body>
+
+</html>
